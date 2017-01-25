@@ -29,6 +29,7 @@ $(document).ready(function() {
     var newPlayer = new Player(inputtedName);
     players.push(newPlayer);
 
+    resetFields();
     displayPlayers();
   });
 
@@ -56,6 +57,10 @@ $(document).ready(function() {
   });
 });
 
+var resetFields = function() {
+  $("#new-name").val("");
+};
+
 var displayPlayers = function() {
   $("ol#players").empty();
   players.forEach(function(element) {
@@ -77,12 +82,11 @@ var startGame = function() {
   $("button#start-game").hide();
   $("#table").show();
   currentRollerIndex = 0;
-  $("#players li").removeClass("current");
-  $("#players li").eq(currentRollerIndex).addClass("current");
   players.forEach(function(element) {
     element.resetScore();
   });
   displayPlayers();
+  $("#players li").eq(currentRollerIndex).addClass("current");
 };
 
 var endGame = function() {
