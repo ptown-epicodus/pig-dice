@@ -22,6 +22,8 @@ $(document).ready(function() {
     displayPlayers();
   });
 
+  $("button#start-game").click(startGame);
+
   $("button#roll").click(function() {
     $("#die-roll p").text(rollDie().toFixed());
   });
@@ -32,4 +34,10 @@ var displayPlayers = function() {
   players.forEach(function(element) {
     $("ol#players").append("<li id='player'>" + element.name + " (" + element.score.toFixed() + ")</li>");
   });
+};
+
+var startGame = function() {
+  $("form#new-player").hide();
+  $("button#start-game").hide();
+  $("#table").show();
 };
