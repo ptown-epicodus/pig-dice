@@ -1,10 +1,20 @@
 // Business logic
 var players = [];
+var currentRollerIndex = 0;
+var runningScore = 0;
 
 function Player(name) {
   this.name = name;
   this.score = 0;
 }
+
+Player.prototype.accrue = function(points) {
+  this.score += points;
+};
+
+Player.prototype.resetScore = function() {
+  this.score = 0;
+};
 
 var rollDie = function() {
   return Math.floor(6 * Math.random()) + 1;
@@ -25,7 +35,24 @@ $(document).ready(function() {
   $("button#start-game").click(startGame);
 
   $("button#roll").click(function() {
-    $("#die-roll p").text(rollDie().toFixed());
+    var dieValue = rollDie();
+    $("#die-roll p").text(dieValue.toFixed());
+    if (dieValue === 1) {
+      runningScore = 0;
+      nextPlayer();
+    }
+    runningScore += dieValue;
+    if (players[currentRollerIndex].score + runningScore >= 100) {
+      alert(players[currentRollerIndex].name + " wins!");
+      endGame();
+    }
+  });
+
+  $("button#hold").click(function() {
+    players[currentRollerIndex].accrue(runningScore);
+    runningScore = 0;
+    displayPlayers();
+    nextPlayer();
   });
 });
 
@@ -36,8 +63,30 @@ var displayPlayers = function() {
   });
 };
 
+var nextPlayer = function() {
+  if (currentRollerIndex + 1 < players.length)
+    currentRollerIndex++;
+  else
+    currentRollerIndex = 0;
+  $("#players li").removeClass("current");
+  $("#players li").eq(currentRollerIndex).addClass("current");
+};
+
 var startGame = function() {
   $("form#new-player").hide();
   $("button#start-game").hide();
   $("#table").show();
+  currentRollerIndex = 0;
+  $("#players li").removeClass("current");
+  $("#players li").eq(currentRollerIndex).addClass("current");
+  players.forEach(function(element) {
+    element.resetScore();
+  });
+  displayPlayers();
+};
+
+var endGame = function() {
+  $("form#new-player").show();
+  $("button#start-game").show();
+  $("#table").hide();
 };
