@@ -2,7 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Pass the Pigs</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+
     <!-- CSS  -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -14,23 +17,44 @@
     <script src="js/scripts.js" type="text/javascript"></script>
   </head>
   <body>
-    <ol id="players">
-    </ol>
-
-    <form id="new-player">
-      <label for="new-name">Name:</label>
-      <input type="text" id="new-name">
-
-      <button type="submit">Add player</button>
-    </form>
-
-    <button type="click" id="start-game">Start game</button>
-
-    <div id="table">
-      <button type="click" id="roll">Roll</button>
-      <button type="click" id="hold">Hold</button>
-      <div id="die-roll">
-        <p></p>
+    <div class="container">
+      <div class="header">
+        <h1>Pass the Pigs</h1>
+      </div>
+      <div class="main">
+        <div class="sign-hold">
+          <img id="img-sign" src="img/sign.png" alt="A photo of a barnyard sign" />
+          <div class="rules">
+            <p>Rules:</p>
+            <ul>
+              <li>The game begins by each player taking turns rolling the dice.</li>
+              <li>The players turn ends either by "holding", or by rolling a 1.</li>
+              <li>In the event that a player rolls a 1, all points accrued that turn will reset to 0 and it is the next players turn.</li>
+              <li>Players will take turns rolling until a player reaches 100.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- name of players -->
+        <div class="player-score">
+          <ol id="players">
+          </ol>
+          <!-- form -->
+          <form id="new-player">
+            <label for="new-name">Name:</label>
+            <input type="text" id="new-name">
+            <button type="submit">Add player</button>
+          </form>
+        </div>
+        <button type="click" id="start-game">Start game</button>
+        <!-- buttons  -->
+        <div id="table">
+          <button type="click" id="roll">Roll</button>
+          <button type="click" id="hold">Hold</button>
+          <!-- die roll result -->
+          <div id="die-roll">
+            <p></p>
+          </div>
+        </div>
       </div>
     </div>
   </body>
