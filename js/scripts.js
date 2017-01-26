@@ -31,6 +31,7 @@ $(document).ready(function() {
 
     resetFields();
     displayPlayers();
+    $("button#start-game").show();
   });
 
   $("button#start-game").click(startGame);
@@ -92,6 +93,7 @@ var startGame = function() {
 };
 
 var endGame = function() {
+  $("#players li").eq(currentRollerIndex).addClass("winner");
   $("form#new-player").show();
   $("button#start-game").show();
   $("#table").hide();

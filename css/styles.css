@@ -1,3 +1,8 @@
+#table,
+button#start-game {
+  display: none;
+}
+
 body {
   background-color: black;
   font-family: 'Permanent Marker', cursive;
@@ -5,7 +10,6 @@ body {
 
 .header {
   background-color: #fff;
-
   text-align: center;
   font-size: 112px;
 }
@@ -20,12 +24,18 @@ body {
   padding: 10px;
 }
 
+.player-score {
+  width: 400px;
+  position: absolute;
+  top: 200px;
+}
+
 .current {
   color: red;
 }
 
-.player-score {
-
+.winner {
+  color: green !important;
 }
 
 .rules{
@@ -47,7 +57,16 @@ body {
 }
 
 #table {
-  display: none;
+  width: 200px;
+  position: absolute;
+  top: 520px;
+  right: 350px;
+  text-align: center;
+}
+
+#die-roll {
+  font-size: 20px;
+  font-weight: bolder;
 }
 
 /*background images*/
@@ -55,4 +74,22 @@ body {
   height: 350px;
   position: absolute;
   top: 650px;
+}
+
+#pigs-fly {
+  width: 675px;
+  position: absolute;
+  top: 330px;
+  right: 130px;
+}
+
+#player {
+  font-size: 25px;
+}
+
+button#start-game {
+  font-size: 20px;
+  position: absolute;
+  top: 950px;
+  right: 385px;
 }
