@@ -45,7 +45,7 @@ $(document).ready(function() {
       return;
     }
     runningScore += dieValue;
-    if (players[currentRollerIndex].score + runningScore >= 10) {
+    if (players[currentRollerIndex].score + runningScore >= 100) {
       players[currentRollerIndex].accrue(runningScore);
       displayPlayers();
       endGame();

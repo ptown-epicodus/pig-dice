@@ -35,7 +35,8 @@ body {
 }
 
 .winner {
-  color: green !important;
+  color: #77CA1E !important;
+  text-shadow: 2px 2px black !important;
 }
 
 .rules{
