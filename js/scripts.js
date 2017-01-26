@@ -85,6 +85,7 @@ var startGame = function() {
   $("button#start-game").hide();
   $("#table").show();
   currentRollerIndex = 0;
+  runningScore = 0;
   players.forEach(function(element) {
     element.resetScore();
   });
