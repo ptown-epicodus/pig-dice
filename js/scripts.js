@@ -41,10 +41,12 @@ $(document).ready(function() {
     if (dieValue === 1) {
       runningScore = 0;
       nextPlayer();
+      return;
     }
     runningScore += dieValue;
-    if (players[currentRollerIndex].score + runningScore >= 100) {
-      alert(players[currentRollerIndex].name + " wins!");
+    if (players[currentRollerIndex].score + runningScore >= 10) {
+      players[currentRollerIndex].accrue(runningScore);
+      displayPlayers();
       endGame();
     }
   });
