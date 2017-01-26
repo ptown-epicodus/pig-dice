@@ -8,10 +8,17 @@ body {
   font-family: 'Permanent Marker', cursive;
 }
 
+button{
+  background: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
 .header {
   background-color: #fff;
   text-align: center;
   font-size: 112px;
+  border-radius: 15px;
 }
 
 .main {
@@ -22,6 +29,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   padding: 10px;
+  border-radius: 15px;
 }
 
 .player-score {
